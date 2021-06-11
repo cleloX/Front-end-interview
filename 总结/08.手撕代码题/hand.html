@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let line = '-1 0 1 -2 3'
+    line  = line.split(' ').map(item => parseInt(item))
+line.sort((a,b) => a - b)
+let n = line.length / 2
+let flag;
+for(let i=0;i<line.length;i++){
+  if(line[i]>=0){
+    flag = i
+    break
+  }
+}
+// console.log(flag)
+// console.log(11)
+let arr = []
+for(let l=0;l<flag -1;l++){
+  // console.log(1111)
+  for(let m=l+1;m<flag;m++){
+    
+    for(let n=flag;n<line.length;n++){
+      // console.log(1111)
+      if(line[l] + line[m] + line[n] == 0){
+        let arro = []
+        arro.push(line[l])
+        arro.push(line[m])
+        arro.push(line[n])
+        arr.push(arro)
+      }
+      // console.log(line[l] + ' ' + line[m] + ' ' + line[n])
+    }
+  }
+}
+for(let l=0;l<flag;l++){
+  // console.log(1111)
+  for(let m=flag;m<n<line.length-1;m++){
+    
+    for(let n=m+1;n<line.length;n++){
+      // console.log(1111)
+      if(line[l] + line[m] + line[n] == 0){
+        let arro = []
+        arro.push(line[l])
+        arro.push(line[m])
+        arro.push(line[n])
+        arr.push(arro)
+      }
+      // console.log(line[l] + ' ' + line[m] + ' ' + line[n])
+    }
+  }
+}
+console.log(arr)
+  </script>
+</body>
+</html>

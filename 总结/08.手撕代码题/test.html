@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" oninput="de()">
+  <script>
+    function debounce(fun,wait){
+  let timer = null
+  return function(){
+    if(timer) clearTimeout(timer)
+      timer = setTimeout(function(){
+        fun()
+      },wait)
+    
+  }
+}
+function throttle(fun,wait){
+  let pre = 0
+  return function(){
+    let now = new Date()
+    if(now - pre >= wait){
+      fun()
+      pre = now
+    }
+  }
+}
+
+let de = throttle(count,2000)
+let i = 0
+function count(){
+  console.log(i++)
+}
+  </script>
+</body>
+</html>
